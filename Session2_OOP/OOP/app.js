@@ -179,6 +179,27 @@ console.log(My);
 // My.speak();
 
 
+class Crush{
+    firstName;
+    lastName;
+    age;
+    address;
+    sex;
+    constructor(firstName,lastName,age,address,sex){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+        this.sex = sex;
+    }
+    get fullName(){
+        return this.lastName + ' ' + this.firstName;
+    }
+}
+let myCrush = new Crush ('Trang','Điêu Huyền',20,'Kiến Trúc','female');
+console.log(myCrush.fullName);
+
+
 
 // Nếu sử dụng Static vs Attribute của Class
 // non-static vs Attribute - của Object đc tạo từ class
