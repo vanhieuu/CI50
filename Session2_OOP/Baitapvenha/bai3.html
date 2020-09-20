@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function checkString(str1, str2) {
+var countStr1 = [],
+    countStr2 = [];
+        for(var i=0; i<=26 ; i++)
+            {
+    // I < 26 là so sánh với số lượng index của bảng chữ cái 
+                 countStr1[i]=0;
+                countStr2[i]=0;
+        }
+    if(str1.length!=str2.length)
+             return false;
+            // nếu độ dài của 2 chuỗi k bằng nhau thì trả về false
+
+for(var i=0;    i < str1.length ;  i++)  {
+    countStr1[str1.charCodeAt(i)-97]++;
+            //kiểm tra vị trí unicode của ký tự tại vị trí đã cho trong chuỗi, -97 tức là bắt đầu từ ký tự a
+     countStr2[str2.charCodeAt(i)-97]++;
+}   
+for(var i=0 ; i<=26; i++)
+{
+    if(countStr1[i]!=countStr2[i])
+        return false;
+        // Khi ta duyệt chuỗi , bắt đầu từ ký tự đầu tiên, n sẽ chạy 1 lượt và so sánh với bảng chữ cái từ 0 -> 25 tương đương vs abcdefghijklmnopqrstuvwxyz, nếu đúng và dủ số lượng unicode thì sẽ trả về true, còn nếu ra giá trị unicode khác thì sẽ ra false
+}
+return true;
+}
+console.log(checkString('abc','bac'));
+    </script>
+</body>
+</html>
