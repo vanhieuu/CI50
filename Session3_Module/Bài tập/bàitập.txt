@@ -1,0 +1,15 @@
+Viết chương trình quản lý lớp môn học cho sinh viên
+Cần có sinh viên
+    + Tên Sinh Viên
+    + Mã Sinh Viên
+    + Khóa
+    + Khoa
+Lớp môn học
+    + Tên Môn 
+    + Mã Môn
+    + Các Sinh viên
+    + Tên Giangr Viên
+Giảng viên  
+    + Mã Giảng viên
+    + Tên
+    + Học vị

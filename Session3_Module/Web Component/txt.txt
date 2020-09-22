@@ -1,0 +1,4 @@
+- Reuseable
+- Custom Element: là một tập các API của JS giúp định nghĩa các thẻ HTML của riêng mình (custom element - custom tags)
+
+- Shadow DOM - để tương tác với cái custom tag ta phải tự tạo ra 1 custom DOM

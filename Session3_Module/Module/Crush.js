@@ -1,5 +1,6 @@
-import {Person} from './Person.js';
-
+import Person from './Person.js';
+// Bỏ ngoặc nhọn nếu export default
+// import {Person} from './Person.js';
 class Crush extends Person{
     favorites;
     appearence;
@@ -9,4 +10,4 @@ class Crush extends Person{
         this.appearence = appearence;
     }
 }
-export {Crush};
+export default Crush;
