@@ -53,7 +53,7 @@ class Person{
             let me = this.mainPerson;
             let i =  0;
             while(true){
-                if ( me[i]  == undefined){
+                if ( me[i] == undefined){
                     break;
                 } else{
                     if(me[i].favorites == undefined){
