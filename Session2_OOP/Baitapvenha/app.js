@@ -67,26 +67,16 @@ class Person{
              
                 }
             }
-        addEx(){
-            alert("Nhập thông tin về Ex của bạn");
-            let nameEx = prompt("Tên là  ?");
-            let ageEx = prompt("Tuổi ?");
-            let addressEx = prompt("Đang ở  ? ");
-            let favorites = prompt("Sở thích là ?");
-            let newEx = new ex_Lover(nameEx,ageEx,addressEx,favorites);
+        }
+       
+            let newEx = new ex_Lover('Liễu',20,'Hoàng Quốc Việt','Coffee');
             this.mainPerson.push(newEx);
-        }
-        addCr(){
-            alert('Nhập thong tin về Crush của bạn');
-            let nameCr = prompt("Tên crush của bạn ?");
-            let ageCr = prompt("Tuổi của cr ?");
-            let addressCr = prompt("Cr bạn đang ở ?");
-            let favoritesCr = prompt("Sở thích của cr bạn là gì ??");
-            let appearenceCr = prompt("Em/Bạn/Chị ấy có điểm nổi bật nào khiến bạn Cr ?");
-            let newCr = new Crush(nameCr,ageCr,addressCr,appearenceCr,favoritesCr);
+        
+     
+            let newCr = new Crush('Huyền',21,'Hà Đông','Sweet Voice','Reading');
             this.mainPerson.push(newCr);
-        }
-    }
+        
+    
 
 let $Owner = prompt("Tên của bạn ? ");
 let $main = [];
