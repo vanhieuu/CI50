@@ -70,12 +70,14 @@ class Person{
         }
        
             let newEx = new ex_Lover('Liễu',20,'Hoàng Quốc Việt','Coffee');
-            this.mainPerson.push(newEx);
+           
                     console.log(newEx);
 
             let newCr = new Crush('Huyền',21,'Hà Đông','Sweet Voice','Reading');
-            this.mainPerson.push(newCr);
+          
                 console.log(newCr);
+    
+function User() {
     
 
 let $Owner = prompt("Tên của bạn ? ");
@@ -99,4 +101,5 @@ let listMain = new list($Owner,$main);
                     break;
             }
     }
+}
 ////------------------------------///
