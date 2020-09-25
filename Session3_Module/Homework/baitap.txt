@@ -1,0 +1,1 @@
+Vòng đời của 1 component
