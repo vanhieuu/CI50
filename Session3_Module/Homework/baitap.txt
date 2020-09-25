@@ -1,1 +1,32 @@
-Vòng đời của 1 component
+Vòng đời của 1 component bao gồm 4 giai đoạn
+        - Mounting - Giai đoạn component được tạo ra và chèn vào các browers DOM
+        - Updating - Giai đoạn component được phát triển
+        - Unmounting - Giai đoạn component được xóa khỏi browers DOM
+        - Error Handling - bug đang bị treo ở đâu đấy....
+                * Một component có thể trong quá trình render sẽ không qua tất cả các vòng đời, có thể  nó  được mounted và unmounted— chứ không trải qua quá trình update và xử lý lỗi
+
+
+
+
+        - connectedCallback: 
+                + Phương thức connectedCallback được gọi mỗi lần element được thêm vào DOM. Nó có thể được dùng (khuyến nghị nên dùng) để delay (hoãn lại) vài việc cho đến khi element thực sự được gắn vào trang (chẳng hạn như lấy tài nguyên từ server).
+
+        - disconnectedCallback: 
+                + Tương tự như connectedCallback thì disconnectedCallback được gọi khi 1 element bị lấy ra khỏi DOM. Thường là để giải phóng tài nguyên. Lưu ý rằng disconnectedCallback không bao giờ được gọi nếu như user đóng tab. Hãy cẩn thận với những thứ mà bạn khởi tạo lúc đầu.
+
+        - attributeChangedCallback: 
+                + Phương thức này được gọi khi 1 attribute của element được thêm vào, gỡ ra, cập nhật hoặc thay thế. Nó cũng được gọi khi element được tạo ra bởi parser. Tuy nhiên, lưu ý rằng nó chỉ áp dụng cho các attribute nằm trong danh sách an toàn (whitelist) của property observedAttributes
+
+        ----------------------------------------------------------
+- Web Component
+        - Custom Elements
+            Nói một cách đơn giản, đây là các thành phần HTML hợp lệ với các template, behaviors và tag name tùy chỉnh 
+                (ví dụ: <one-dialog> ) được tạo bằng một bộ API JavaScript. Các thành phần tùy chỉnh được mô tả trong custom-element.
+
+
+        - Shadow DOM
+                Có khả năng cô lập CSS và JavaScript, gần giống như <iframe> . Điều này được định nghĩa trong shadow-trees .
+
+
+        - HTML templates
+                 Các template do người dùng xác định trong HTML không được hiển thị cho đến khi được gọi. Thẻ <template>  được xác định trong template-element .
