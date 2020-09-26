@@ -28,8 +28,9 @@ Vòng đời của 1 component bao gồm 4 giai đoạn
         - Shadow DOM
                 Có khả năng cô lập CSS và JavaScript, gần giống như <iframe> . Điều này được định nghĩa trong shadow-trees .
                  Công nghệ đóng gói
-
+-------------------------------------------------------------------
 
         - HTML templates
                  Các template do người dùng xác định trong HTML không được hiển thị cho đến khi được gọi. Thẻ <template>  được xác định trong template-element .
                  Tạo nội dung mặc định của tag 
+                 Khai báo bên dưới body         

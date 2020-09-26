@@ -1,0 +1,2 @@
+//Làm thế nào để style cho shadowDOM
+    - Nhúng thẳng style vào thẳng template
