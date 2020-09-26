@@ -8,7 +8,18 @@ class Quest {
         this.correctAnswer = correctAnswer;
     }
 }
-   
+class Choice_Quest extends Quest{
+    constructor(id,contentQuest,correctAnswer){
+        super(id,contentQuest,correctAnswer)
+}
+}
+class Text_Quest extends Quest{
+    constructor(id,contentQuest,correctAnswer){
+        super(id,contentQuest,correctAnswer)
+}
+}
+        /// Thêm Choice Question extend Quest
+        ///      Text Question extend Quest
 
 class questInitialization{
      questions = new Array (); 
@@ -40,4 +51,4 @@ class questInitialization{
 
 }
 
-export {Quest,questInitialization}
+export {Quest,questInitialization,Choice_Quest,Text_Quest}
