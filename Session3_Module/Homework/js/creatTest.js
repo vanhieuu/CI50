@@ -24,7 +24,7 @@ addnewTest(){
     let timeLimit = prompt("Nhập giới hạn thời gian");
     let dayCreat = prompt("Nhập ngày tạo");
     let numQuest = prompt("Nhập số lượng câu hỏi");
-    let $test  = new testInitialization(id,name,timeLimit,dayCreat,numQuest);
+    let $test  = new Test(id,name,timeLimit,dayCreat,numQuest);
     this.test.push($test);
 }
 showAllTest(){
