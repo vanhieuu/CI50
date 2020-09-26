@@ -8,21 +8,12 @@ class Quest {
         this.correctAnswer = correctAnswer;
     }
 }
-    class Choice extends Quest{
-        constructor(id,contentQuest,correctAnswer){
-            super(id,contentQuest,correctAnswer);
-        }
-    }
-    class Essay extends Quest{
-        constructor(id,contentQuest,correctAnswer){
-            super(id,contentQuest,correctAnswer);
-        }
-    }
+   
 
 class questInitialization{
      questions = new Array (); 
         constructor(questions){
-            this.questions;
+            this.questions = questions;
         }
         addQuestions(){
             let id = prompt("Nhập id câu hỏi");
@@ -49,4 +40,4 @@ class questInitialization{
 
 }
 
-export {Quest,questInitialization,Essay,Choice}
+export {Quest,questInitialization}

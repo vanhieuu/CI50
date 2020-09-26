@@ -1,4 +1,4 @@
-import {Quest,questInitialization,Essay,Choice} from './quest.js';
+import {Quest,questInitialization} from './quest.js';
 import {testInitialization} from "./creatTest.js";
 
 let arr1 = new Array();
@@ -23,7 +23,6 @@ let newQuests =new questInitialization(arr2);
                     else if(request == '2')
                     {
                         newQuests.showQuestions();
-                        
                     }
                      else if(request == '3')
                     {
