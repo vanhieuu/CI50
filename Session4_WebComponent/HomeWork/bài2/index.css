@@ -1,0 +1,40 @@
+body {
+   padding: 0px;
+   margin: 0px;
+}
+
+div.form-book, div.show-book{
+    width: 500px;
+    border:  2px solid #ccc;
+    margin:  25px;
+    padding: 10px 25px;
+    float: left;
+  
+}
+table{
+    width: 500px;
+    border: 1px;
+    border-style: dashed;
+
+}
+
+div.form-book.h3{
+    padding: 0px;
+    margin-top: 0px;
+}
+div.form-book label{
+    width: 150px;
+    float: left;
+}
+div.form-book input{
+    margin-bottom: 10px;
+    width: 200px;
+    
+}
+button{
+    margin-top:  15px;
+    width: 150px;
+}
+span{
+    color: red;
+}
