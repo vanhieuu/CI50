@@ -1,0 +1,23 @@
+ SQL  ------------------------ NoSQL
+
+    -SQL:
+        + Dùng cho hệ quản trị CSDL có nhiều relationship
+
+
+    - NoSQL:
+        + Dùng cho hệ quản trị CSDL có ít relationship
+        + Hệ Qtrị CSDL lưu dưới dạng một object
+            vd : {
+                name: 'Hạnh',
+                age : '18',
+                address : 'Thái Nguyên' ,
+                {},
+                {}
+            } = > 1 tree Object 
+                
+    - FireBase lưu dưới dạng NoSQL
+        + Mỗi 1 tệp lưu được lưu dưới dạng document
+            - các document được lưu dưới dạng collection
+                Cha - roots
+                    con - collection - story
+                        cháu - Vk
