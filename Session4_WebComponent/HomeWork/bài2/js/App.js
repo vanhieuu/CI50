@@ -1,14 +1,48 @@
 import Book from "./Book.js";
+import  {AddNewBookCase} from "./BookCase.js";
 import BookCase from "./BookCase.js";
-export default class App{
-    book;
-    bookCase;
-    constructor(){
-        this.book = new Array();
-        this.bookCase = new Array();
-    }
 
-    /**  if (_.isEmpty(id)) {
+        let newBook = new Array();
+        let newBookCase = new Array();
+        let adminBook = new Book(newBook)
+        let adminBookCase = new AddNewBookCase(newBookCase)
+    while(true){
+        let action = prompt(`Chọn chức năng:
+                                        1 - Thêm Tủ Sách
+                                        2 - Sửa Tủ Sách
+                                        3 - Xóa Tủ Sách
+                                        4 - Hiển thị tủ sách
+                                        5 - Thêm Sách
+                                        6 - Tìm Sách
+                                        7 - Hiển thị tủ sách`)
+                                    
+                if(action == '1'){
+                    adminBookCase.addBookCase();
+                }
+               else if(action == '2'){
+                    adminBookCase.updateBookCase();
+                }
+               else if(action == '3'){
+                    adminBookCase.deleteBookCase();
+                }
+               else if(action == '4'){
+                    adminBookCase.showBookCase();
+                }
+               else if(action == '5'){
+                    adminBook.addBook();
+                }
+               else if(action == '6'){
+                    adminBook.findBook();
+                }   
+               else if(action == '7'){
+                    adminBook.showBook();
+                }               
+               else if(action == '8'){
+                    break;
+                }                     
+            }
+    
+    //   if (_.isEmpty(id)) {
     //         document.getElementById('id-error').innerHTML = "Vui lòng nhập id sách !!"
     //             }           
     //         else if(bookName.length <= 1){
@@ -70,35 +104,6 @@ export default class App{
         
     // }
     //     }
-*/
-        addBook(){
-            let newBook = new Book(id,bookName,author,type,newDate);
-        this.newBooks.push(newBook);
-
-              let tableContent = `<tr>
-            <td>#</td>
-            <td>ID</td>
-            <td>Tên Sách</td>
-            <td>Thể Loại</td>
-            <td>Tác Gỉa</td>
-            <td>Ngày nhập</td>
-                         </tr>`
-            let maxBook = `<h3>Your Book Case 0/20 </h3>`;
-        this.newBooks.forEach((newBooks,i) => {
-            i++;
-            if (i > 20) {
-                alert("Qúa giới hạn của sách ")
-            }
-            maxBook = `<h3>Your Book Case ${i}/20 </h3>`;
-            tableContent += `<tr>
-            <td>${i}</td>
-            <td>${newBooks.id}</td>
-            <td>T${newBooks.bookName}</td>
-            <td>${newBooks.author}</td>
-            <td>${newBooks.type}</td>
-            <td>${newBooks.date}</td>
-                         </tr>`
-    })
-    document.getElementById('list-books').innerHTML = tableContent;
-        }
-}
+    // 
+    // 
+    
