@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form-login></form-login>
+</body>
+    <script src="js/App.js" type="module"></script>
+        <template id="template-input-wrapper">
+            <div class="input-wrapper">
+                <label for="" id="input-label"></label>
+                    <input type="" id="input-main"/>
+                <div id="input-error"></div>
+        </div>
+        </template>
+
+        <template id="template-form-login">
+               <div id="wrapper">
+                   <form  class="form-login">
+                        <h2>Đăng nhập</h2>
+                        <input-wrapper id ="email" label = "Email" type = "email" error = "" value ="">
+                    </input-wrapper>
+                    <input-wrapper id ="password" label = "Password" type = "password" error = "" value ="">
+                    </input-wrapper>
+                        <button type="submit"> Đăng Nhập</button>
+                   </form>
+               </div>
+        </template> 
+</html>

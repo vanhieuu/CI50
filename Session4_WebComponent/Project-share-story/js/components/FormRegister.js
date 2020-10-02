@@ -28,6 +28,7 @@ class FormRegister extends HTMLElement{
             }
         }               
         validate(name, email, password, passwordConfirmation){
+                let isPassed = true
                 if(name == ''){
                     this.$name.error ="Nhập vào tên"
                     isPassed = false;
@@ -36,20 +37,22 @@ class FormRegister extends HTMLElement{
                     }      
                     if(email == ''){
                         this.$email.error ="Nhập vào email"
-                        isPassed = false
+                        isPassed = false;
                     }
                     if(password == ''){
-                        this.$password.error ="Nhập vào mật khẩu"
                         isPassed = false;
+                        this.$password.error ="Nhập vào mật khẩu"
+                      
                         } else{
                             this.$password.error ='';
                         }  
-                    if(passwordConfirmation != password){
+                    if(passwordConfirmation != password || passwordConfirmation == ""){
                             this.$passwordConfirmation.error ="Không trùng khớp với mật khẩu";
-                            isPassed = false;
+                                isPassed = false;
                     }else{
                         this.$passwordConfirmation = ""
                     }
+                    return isPassed;
                 }
 }
 window.customElements.define('form-register',FormRegister)
