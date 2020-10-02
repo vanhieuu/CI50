@@ -18,7 +18,7 @@ export default class App{
             return test;
     }
     updateTest(){
-            let id = prompt("Input your test id to udapte");
+            let id = prompt("Input your test id to update");
             let newName = prompt("Input your new name");
             let newDuration = Number(prompt("Input new durations")); 
             let foundTest = this.tests.find(function(test) {

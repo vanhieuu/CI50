@@ -1,0 +1,98 @@
+- Arrow Function (hay còn gọi là hàm mũi tên) là một trong những tính năng mới và rất hay của ES6. Nó thừa hưởng cách viết ngắn gọn bằng cú pháp ES6. Tuy Arrow Function và Function đều là function, nhưng cách viết và cách tham chiếu tới bối cảnh (context) khác nhau.
+        
+        - Arrow Function sử dụng kí tự => 
+            VD: 
+                hello = () => {
+                    console.log('hello')
+                            }
+                                // hello()  
+
+        - Còn function thông thường thì 
+                function hello(){
+                console.log('hello')
+                    }
+                // hello()
+
+    - Sự khác biệt giữa Arrow function và function thông thường là khác nhau ở context khác nhau
+        1.Ở từ khóa "this"
+            - this là một từ khóa dùng để trỏ tới chính object gọi hàm.
+            - Với function thường giá trị của this khá khó lường, tùy thuộc thời điểm chúng ta gọi nó. Như tình huống sau, nếu không có strict mode, thì giá trị nó là global object (window), còn có strict mode nó sẽ là undefined
+                    VD: function myFunction() {
+                            console.log(this);
+                                            }
+
+                        myFunction(); 
+                                // => global object (window)
+        
+            -Giá trị nó sẽ tùy thuộc vào ngữ cảnh, như trong trường hợp này, nó chính là object chính chủ của phương thức
+                            const myObject = {
+                                method() {
+                            console.log(this);
+                                    }
+                                };
+
+                        myObject.method(); 
+                            // => "myObject"
+
+        - Với arrow function, this sẽ luôn bằng với giá trị của function ở ngoài, arrow function không khai báo thêm vùng tự trị riêng (execution context), mà dùng chung với thằng cha:
+                        const myObject = {
+                            myMethod(items) {
+                                 console.log(this); // "myObject"
+                                    const callback = () => {
+                                         console.log(this); // "myObject"
+                                                };
+                                    items.forEach(callback);
+                                            }
+                                        };
+
+                            myObject.myMethod([1, 2, 3]);
+                Nhờ đặc tính này của Arrow Function mà t sẽ không cần phải dùng đến phương thức bind
+            
+    2. Constructor
+            - Để khởi tạo 1 object với function thông thường
+                    function person(name){
+                        this.name = name;             
+                            }
+                        const Hieu = new person('Hieu');
+                            Hieu instaceof person // => True
+            
+            
+            - Còn Arrow Function thì lại không dùng được như thế
+
+
+    3. Ngầm định là có return
+            - Đối với function thông thường, ta phải rõ ràng return về 1 giá trị cụ thể
+                    VD: function Test(){
+                        return 'Hieu';
+                    }
+                    Test(); // => Hieu
+            
+            - Còn đối với Arrow function nếu chỉ có một expression, bỏ qua dấu ngoặc đơn luôn, thì giá trị của expression sẽ được return;
+                    VD : const Test = (number) => number + 1
+                        Test(1999);
+                            // => 2000
+        
+    4. method
+         - Function thông thường sẽ là lựa chọn hàng đầu để viết method cho class 
+                    class Person{
+                        name;
+                        Constructor(name){
+                            this.name = name;
+                        }
+                        newName(){
+                            console.log(this.name)
+                        }
+                    }
+                    let Hieu = new Person('Hiếu');
+
+
+        - Nhưng khi bạn không muốn thay đổi giá trị của this , Arrow sẽ là lựa chọn hợp lý hơn;
+                        class Person{
+                            Constructor(name){
+                                this.name = name;
+                            }
+                            newName = () =>{
+                                console.log(this.name)
+                            }
+                        }
+                        let Hieu = new Person("Hiếu");
