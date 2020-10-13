@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAssbMnbAuDnKdVmTV94ETeJkMnSIn98S8",
+    authDomain: "to-do-list-77f77.firebaseapp.com",
+    databaseURL: "https://to-do-list-77f77.firebaseio.com",
+    projectId: "to-do-list-77f77",
+    storageBucket: "to-do-list-77f77.appspot.com",
+    messagingSenderId: "963974739390",
+    appId: "1:963974739390:web:5c3134a845d85b8204f5ef"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
+</head>
+<body>
+  <task-list id="task-list-01" date-modified='15/10/2020'></task-list>
+
+
+   
+</body>
+    <template id="task-container-template" >
+        <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
+            <div class="task-container">
+                <div class="aside-left">
+                            <input type="checkbox" id="is-completed">
+                </div>
+                 
+                    <div class="main-content">
+                            <div id="content"></div>
+                            <div id="date-modified"></div>
+                    </div>
+                
+                <div class="aside-right">
+                    <button id="btn-edit">Edit</button>
+                </div>
+            </div>
+    </template>
+
+    <template id="task-list-template">
+        <div class="task-list">
+             <h2 id="name">Task</h2>
+             <div id="tasks"></div>
+            <div id="date-modified"></div>
+        </div>
+    </template>
+    <script src="Homework/Todolist/js/app.js" type="module"></script>
+</html>

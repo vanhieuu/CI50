@@ -1,0 +1,9 @@
+Task : - id
+       - Content                => map sang TaskContainer
+       - date
+       - is Complete
+
+Task List : - id    
+            - date Modified         => map sang TaskListContainer
+            - data(tasks)
+
