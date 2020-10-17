@@ -24,9 +24,14 @@
     <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
 </head>
 <body>
-  <task-list id="task-list-01" date-modified='15/10/2020'></task-list>
+    
+    <form-add-task ></form-add-task>
+  <!-- <task-list id="task-list-01" date-modified=''></task-list> -->
+        <div id="app">
+            <task-list></task-list>
+        </div>
 
-
+   
    
 </body>
     <template id="task-container-template" >
@@ -48,11 +53,18 @@
     </template>
 
     <template id="task-list-template">
-        <div class="task-list">
-             <h2 id="name">Task</h2>
-             <div id="tasks"></div>
-            <div id="date-modified"></div>
-        </div>
+            <div class="task-list">
+                 <h2 id="name">Task</h2>
+                <div id="tasks"></div>
+                <div id="date-modified"></div>
+            </div>
+    </template>
+
+    <template id="form-add-task-template">
+            <form action="" class="form-add-task">
+                <textarea name="content"  style=" width:100% ; height:50px "></textarea>
+                    <button>Create Task</button>
+            </form>
     </template>
     <script src="Homework/Todolist/js/app.js" type="module"></script>
 </html>

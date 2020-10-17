@@ -9,9 +9,11 @@ class TaskList extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild($template.content.cloneNode(true));
+        this.$formAddTask = document.querySelector('form-add-task')
         this.$name = this.shadowRoot.getElementById('name');
         this.$dateModified = this.shadowRoot.getElementById("date-modified");
         this.$tasks = this.shadowRoot.getElementById('tasks')
+    
     }
 
    
@@ -29,15 +31,20 @@ class TaskList extends HTMLElement {
     }
 
     //=============================================\\
-    setTasks(tasks) {
+    // set newTasks(tasks) {
+    //     this.tasks = tasks;
+    //     this.render();
+    // }
+    setTasks(tasks){
         this.tasks = tasks;
-        this.render();
+        this.render()
     }
-    
+    // Lưu ý khi đặt tên, khi để là set task thì n sẽ bị trùng tên với thuộc tính task = [] ở bên trên 
+    // phải khác tên thuộc tính
 
     //==============================================\\
     addTask() {
-
+            console.log(this);
     }
     //==============================================\\
 
@@ -47,6 +54,8 @@ class TaskList extends HTMLElement {
     //==============================================\\
 
     render() {
+        this.$formAddTask[addTaskCallback] = this.addTask.bind(this);
+
         this.$name.innerHTML =  'Task list: ' + this.id;
         this.$dateModified.innerHTML = this.dateModified;
         this.$tasks.innerHTML = this.tasks.map((task) => {
@@ -54,8 +63,11 @@ class TaskList extends HTMLElement {
                                      content ="${task.content}" 
                                         is-completed ="${task.isCompleted}" 
                                         date-modified = "${task.dateModified}"> 
-                    </task-container>`
+                                        
+                    </task-container>
+                    <hr>`
         }).join('');
+       
     }
     //==============================================\\
 
