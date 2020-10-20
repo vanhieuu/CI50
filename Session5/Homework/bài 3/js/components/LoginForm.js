@@ -29,11 +29,11 @@ class FormLogin extends HTMLElement{
                    let checkKey = true;
                     if(email == ''){
                         this.$email.error ="Nhập vào email"
-                        isPassed = false
+                        checkKey = false
                     }
                     if(password == ''){
                         this.$password.error ="Nhập vào mật khẩu"
-                        isPassed = false;
+                        checkKey = false;
                         } else{
                             this.$password.error ='';
                         }  

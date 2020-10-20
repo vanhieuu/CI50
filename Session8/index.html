@@ -25,11 +25,11 @@
 </head>
 <body>
     
-    <form-add-task ></form-add-task>
-  <!-- <task-list id="task-list-01" date-modified=''></task-list> -->
+    
+
         <div id="app">
-            <task-list></task-list>
         </div>
+     
 
    
    
@@ -38,7 +38,7 @@
         <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
             <div class="task-container">
                 <div class="aside-left">
-                            <input type="checkbox" id="is-completed">
+                        <input type="checkbox" id="is-completed">
                 </div>
                  
                     <div class="main-content">
@@ -55,6 +55,7 @@
     <template id="task-list-template">
             <div class="task-list">
                  <h2 id="name">Task</h2>
+                 <form-add-task id="form-add-task"></form-add-task>
                 <div id="tasks"></div>
                 <div id="date-modified"></div>
             </div>
@@ -63,7 +64,7 @@
     <template id="form-add-task-template">
             <form action="" class="form-add-task">
                 <textarea name="content"  style=" width:100% ; height:50px "></textarea>
-                    <button>Create Task</button>
+                    <button >Create Task</button>
             </form>
     </template>
     <script src="Homework/Todolist/js/app.js" type="module"></script>

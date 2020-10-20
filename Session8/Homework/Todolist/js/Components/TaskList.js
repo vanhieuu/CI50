@@ -9,14 +9,18 @@ class TaskList extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild($template.content.cloneNode(true));
-        this.$formAddTask = document.querySelector('form-add-task')
+        this.$tasks = this.shadowRoot.getElementById('tasks')
+        this.$formAddTask = this.shadowRoot.querySelector('form-add-task')
         this.$name = this.shadowRoot.getElementById('name');
         this.$dateModified = this.shadowRoot.getElementById("date-modified");
-        this.$tasks = this.shadowRoot.getElementById('tasks')
-    
-    }
+        this.$taskList = this.shadowRoot.querySelector('.task-list');
+      
+        this.$taskList.addEventListener('add-task-event', (event) => {
+            console.log(event.detail);
+            this.addTask(event.detail)
+        })
 
-   
+    }
 
     static get observedAttributes() {
         return ['id', 'date-modified']
@@ -35,7 +39,7 @@ class TaskList extends HTMLElement {
     //     this.tasks = tasks;
     //     this.render();
     // }
-    setTasks(tasks){
+    setTasks(tasks) {
         this.tasks = tasks;
         this.render()
     }
@@ -43,36 +47,49 @@ class TaskList extends HTMLElement {
     // phải khác tên thuộc tính
 
     //==============================================\\
-    addTask() {
-            console.log(this);
+    addTask(task) {
+        console.log(this);
+        this.tasks.push(task);
+        this.render();
+        
+        firebase.firestore()
+                            .collection('Task-lists')
+                            .doc(this.getAttribute('id'))
+                            .update({
+                                tasks: this.tasks
+                            });       
     }
     //==============================================\\
 
     updateTask() {
-
+        let $btnEdit = document.getElementById('btn-edit');
+        $btnEdit.addEventListener('click',function(event){
+                   
+        })
     }
     //==============================================\\
 
     render() {
-        this.$formAddTask[addTaskCallback] = this.addTask.bind(this);
-
-        this.$name.innerHTML =  'Task list: ' + this.id;
+        this.$name.innerHTML = 'Task list: ' + this.id;
         this.$dateModified.innerHTML = this.dateModified;
         this.$tasks.innerHTML = this.tasks.map((task) => {
-          return `<task-container id="${task.id}" 
-                                     content ="${task.content}" 
-                                        is-completed ="${task.isCompleted}" 
-                                        date-modified = "${task.dateModified}"> 
-                                        
+            return `<task-container 
+            id="${task.id}" 
+            content ="${task.content}" 
+            is-completed ="${task.isCompleted}" 
+            date-modified = "${task.dateModified}">  
                     </task-container>
-                    <hr>`
+                    <hr>`;
         }).join('');
-       
+
     }
     //==============================================\\
 
     deleteTask() {
+                let btnEdit = document.getElementById('btn-edit');
+                btnEdit.addEventListener('click',function(event){
 
+                })
     }
 
 }
