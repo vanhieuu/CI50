@@ -16,10 +16,16 @@ class TaskList extends HTMLElement {
         this.$taskList = this.shadowRoot.querySelector('.task-list');
       
         this.$taskList.addEventListener('add-task-event', (event) => {
-            console.log(event.detail);
+            // console.log(event.detail);
             this.addTask(event.detail)
-        })
-
+        });
+        this.$taskList.addEventListener('update-task-event',(event)=>{
+            this.updateTask(event.detail);
+            });
+        
+            this.$taskList.addEventListener('delete-task-even',(event)=>{
+                this.deleteTask(event.detail);
+            })
     }
 
     static get observedAttributes() {
@@ -61,11 +67,25 @@ class TaskList extends HTMLElement {
     }
     //==============================================\\
 
-    updateTask() {
-        let $btnEdit = document.getElementById('btn-edit');
-        $btnEdit.addEventListener('click',function(event){
-                   
-        })
+    updateTask(task) {
+      //tìm task có id tương ứng 
+            // let foundTask = null;
+            // for(let item of this.tasks){
+            //     if(item.id == task.id){
+            //         foundTask = item
+            //         break;
+            //     }
+            // }
+            let foundTask = this.tasks.find((function(item){
+                return item.id == task.id
+            }));
+            if(foundTask != null){
+                foundTask.content = task.content;
+                console.log(foundTask);
+            }
+            // Update dataBase
+            firebase.firestore().collection("Task-lists").doc(this.id).update(
+                {tasks:this.tasks})
     }
     //==============================================\\
 
@@ -85,12 +105,25 @@ class TaskList extends HTMLElement {
     }
     //==============================================\\
 
-    deleteTask() {
-                let btnEdit = document.getElementById('btn-edit');
-                btnEdit.addEventListener('click',function(event){
-
-                })
+    deleteTask(task) {
+        //C1: Filter
+        //C2: Dùng splice
+        // Filter
+        // this.tasks = this.tasks.filter(function(item){
+        //     return item.id != task.id;
+        // });
+        // firebase.firestore().collection("Task-lists").doc(this.id).update(
+        //     {tasks:this.tasks})
+        //C2
+        let foundIndex = this.tasks.findIndex(function(item){
+            return item.id === task.id
+        });
+            if(foundIndex > -1){
+                this.tasks.splice(foundIndex, 1);
+            firebase.firestore().collection("Task-lists").doc(this.id).update(
+                    {tasks:this.tasks})
+            }
     }
-
+    
 }
 window.customElements.define('task-list', TaskList)

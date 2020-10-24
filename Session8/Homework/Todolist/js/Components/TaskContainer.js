@@ -6,6 +6,7 @@ class TaskContainer extends HTMLElement{
             dateModified='';
             isCompleted='';
             editMode = false;
+            delete ;
         constructor(id,content,dateModified,isCompleted){
         
             super();
@@ -19,7 +20,17 @@ class TaskContainer extends HTMLElement{
                 this.$edit.onclick = () =>{
                     this.changeEditMode();
                 }
-        }
+            this.$delete = this.shadowRoot.getElementById('btn-delete')
+                    this.$delete.onclick = () =>{
+                        // this.remove();
+                        this.deleteTask();
+                        this.render();
+                    }
+
+                
+            }
+            
+            
     static get observedAttributes(){
         return ['id','content','date-modified','is-completed'];
     }
@@ -52,7 +63,18 @@ class TaskContainer extends HTMLElement{
 
         }
         // Làm nhiệm vụ hiển thị nội dung và bắt sự kiện cho các element nằm bên trong 
+        updateTask(){
+                this.content = this.$content.innerHTML;
+               let  updateTaskEvent= new CustomEvent('update-task-event',{
+                    bubbles:true,
+                    detail:{
+                        id: this.id,
+                         content: this.content,
 
+                    }
+                });
+                this.dispatchEvent(updateTaskEvent);
+            }
         changeEditMode(){
                 this.editMode =! this.editMode;
                 this.render();
@@ -61,7 +83,7 @@ class TaskContainer extends HTMLElement{
         render(){
             this.$content.innerHTML = this.content;
             this.$dateModified.innerHTML = this.dateModified;
-
+          
             if (this.editMode ) {
                     this.renderEditTable();
             }else{
@@ -74,12 +96,30 @@ class TaskContainer extends HTMLElement{
             this.$isCompleted.checked = this.isCompleted;
                 this.$isCompleted.style.display = 'inline-block'
                 this.$edit.innerHTML = 'Edit'
+                this.$edit.onclick = () =>{
+                    this.changeEditMode();
+                }
         }
         renderEditTable(){
                 
                 this.$content.contentEditable = true;
                 this.$isCompleted.style.display = 'none';
                 this.$edit.innerHTML  = 'Save';
+                this.$edit.onclick = () =>{
+                    this.updateTask();
+                    this.changeEditMode();
+                }
         }
-}
+        deleteTask(){
+              let deleteTaskEvent = new CustomEvent('delete-task-even',
+              {bubbles:true,
+                detail:{
+                    id: this.id
+                }
+              });
+              this.dispatchEvent(deleteTaskEvent);
+              this.remove();
+        }
+    }
+
 window.customElements.define('task-container', TaskContainer);

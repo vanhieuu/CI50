@@ -21,11 +21,12 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.1/uuid.min.js" integrity="sha512-4JH7nC4nSqPixxbhZCLETJ+DUfHa+Ggk90LETm25fi/SitneSvtxkcWAUujvYrgKgvrvwv4NDAsFgdwCS79Dcw==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
 </head>
 <body>
     
-    
+    <form-register></form-register>
 
         <div id="app">
         </div>
@@ -48,6 +49,7 @@
                 
                 <div class="aside-right">
                     <button id="btn-edit">Edit</button>
+                    <button id="btn-delete">Delete</button>
                 </div>
             </div>
     </template>
@@ -66,6 +68,23 @@
                 <textarea name="content"  style=" width:100% ; height:50px "></textarea>
                     <button >Create Task</button>
             </form>
+    </template>
+    <template id="template-input-wrapper">
+        <div class="input-wrapper">
+            <label for="" id="input-label"></label>
+            <input type="text" id="input-main">
+            <div id="input-error"></div>
+        </div>
+    </template>
+    <template id="template-form-register">
+        <form class="form-register">
+            <h2>Đăng kí tài khoản</h2>
+            <input-wrapper id="name" label="Tên đăng kí" type="text" error="" value=""></input-wrapper>
+            <input-wrapper id="email" label="Email" type="email" error="" value=""></input-wrapper>
+            <input-wrapper id="password" label="Mật khẩu" type="password" error="" value=""></input-wrapper>
+            <input-wrapper id="password-confirmation" label="Mật khẩu" type="password" error="" value=""></input-wrapper>
+            <button>Đăng kí</button>
+        </form>
     </template>
     <script src="Homework/Todolist/js/app.js" type="module"></script>
 </html>

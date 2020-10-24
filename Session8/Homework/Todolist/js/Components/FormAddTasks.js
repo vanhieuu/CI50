@@ -29,7 +29,7 @@ class FormAddTasks extends HTMLElement {
             let addTaskEvent = new CustomEvent('add-task-event', {
                 bubbles: true,
                 detail:{
-                        id:'',
+                        id: uuid.v4(),
                         content: content,
                         isCompleted: false,
                         dateModified:new Date().toISOString()
