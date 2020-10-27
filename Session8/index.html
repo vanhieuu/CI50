@@ -7,6 +7,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" integrity="sha512-nOQuvD9nKirvxDdvQ9OMqe2dgapbPB7vYAMrzJihw5m+aNcf0dX53m6YxM4LgA9u8e9eg9QX+/+mPu8kCNpV2A==" crossorigin="anonymous"></script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -25,8 +26,8 @@
     <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
 </head>
 <body>
-    
-    <form-register></form-register>
+
+    <form-login></form-login>
 
         <div id="app">
         </div>
@@ -82,9 +83,17 @@
             <input-wrapper id="name" label="Tên đăng kí" type="text" error="" value=""></input-wrapper>
             <input-wrapper id="email" label="Email" type="email" error="" value=""></input-wrapper>
             <input-wrapper id="password" label="Mật khẩu" type="password" error="" value=""></input-wrapper>
-            <input-wrapper id="password-confirmation" label="Mật khẩu" type="password" error="" value=""></input-wrapper>
+            <input-wrapper id="password-confirmation" label="Xác thực m ật khẩu" type="password" error="" value=""></input-wrapper>
             <button>Đăng kí</button>
         </form>
+    </template>
+    <template id="form-login-template">
+            <form  class="form-login">
+                <h2>Đăng nhập</h2>
+                        <input-wrapper id= "email"  label = "Email" type ='email'></input-wrapper>
+                        <input-wrapper id="password" label = "Mật khẩu" type ='password'></input-wrapper>
+                            <button>Đăng nhập </button>
+            </form>
     </template>
     <script src="Homework/Todolist/js/app.js" type="module"></script>
 </html>

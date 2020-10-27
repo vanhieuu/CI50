@@ -1,3 +1,5 @@
+import {md5} from "./ultil.js";
+
     const $template = document.getElementById('template-form-register')
 class FormRegister extends HTMLElement{
         constructor(){
@@ -17,20 +19,36 @@ class FormRegister extends HTMLElement{
                         this.register()
                 }
             }
-        register(){
+        async register(){
             let email = this.$email.value;
             let name  = this.$name.value;
             let password = this.$password.value;
             let passwordConfirmation = this.$passwordConfirmation.value
             ///
-            if(this.validate(name,email,password,passwordConfirmation)){
-                alert("đăng kí thành công ")
-                firebase.firestore().collection("User").add({
-                    name:name,
-                    password:password,
-                    email:email
-                })
-            }
+            // if(this.validate(name,email,password,passwordConfirmation)){
+            //     alert("đăng kí thành công ")
+            //     firebase.firestore().collection("User").add({
+            //         name:name,
+            //         password:password,
+            //         email:email
+            //     })
+            
+            let result = await firebase
+                                .firestore()
+                                .collection('User')
+                                .where('email','==',email)
+                                .get();
+                    if(result.empty){
+                        firebase.firestore().collection('User').add({
+                            name: name,
+                            email: email,
+                            password: md5(password)
+                        });
+                        alert('bạn đã đăng ký thành công')
+                    }else{
+                        alert('tài khoản này đã được đăng ký'); 
+                    }
+            
         }               
         validate(name, email, password, passwordConfirmation){
                 let isPassed = true
