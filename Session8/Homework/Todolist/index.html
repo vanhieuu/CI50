@@ -23,11 +23,10 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.1/uuid.min.js" integrity="sha512-4JH7nC4nSqPixxbhZCLETJ+DUfHa+Ggk90LETm25fi/SitneSvtxkcWAUujvYrgKgvrvwv4NDAsFgdwCS79Dcw==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
+    <link rel="stylesheet" href="css/task-container.css">
 </head>
 <body>
 
-    <form-login></form-login>
 
         <div id="app">
         </div>
@@ -37,7 +36,7 @@
    
 </body>
     <template id="task-container-template" >
-        <link rel="stylesheet" href="Homework/Todolist/css/task-container.css">
+        <link rel="stylesheet" href="css/task-container.css">
             <div class="task-container">
                 <div class="aside-left">
                         <input type="checkbox" id="is-completed">
@@ -84,7 +83,9 @@
             <input-wrapper id="email" label="Email" type="email" error="" value=""></input-wrapper>
             <input-wrapper id="password" label="Mật khẩu" type="password" error="" value=""></input-wrapper>
             <input-wrapper id="password-confirmation" label="Xác thực m ật khẩu" type="password" error="" value=""></input-wrapper>
-            <button>Đăng kí</button>
+                <button>Đăng kí</button>
+                <hr>
+            <a href="#/sign-in" id="login-link" class="badge badge-primary" >Đã có tài khoản? Đăng nhập</a>
         </form>
     </template>
     <template id="form-login-template">
@@ -92,8 +93,12 @@
                 <h2>Đăng nhập</h2>
                         <input-wrapper id= "email"  label = "Email" type ='email'></input-wrapper>
                         <input-wrapper id="password" label = "Mật khẩu" type ='password'></input-wrapper>
-                            <button>Đăng nhập </button>
+                                <button>Đăng nhập </button>
+                                <br>
+                            <a href="#/sign-up" id="register-link" class="badge badge-primary"> Chưa có tài khoản? Đăng ký </a>
             </form>
     </template>
-    <script src="Homework/Todolist/js/app.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
+    <script src="//unpkg.com/navigo@6"></script>
+    <script src="js/Components/Route.js"></script>
 </html>

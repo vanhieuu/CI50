@@ -4,7 +4,7 @@ import "./Components/FormAddTasks.js"
 import "./Components/InputWrapper.js"
 import "./Components/FormRegister.js"
 import "./Components/LoginForm.js"
-
+import "./Components/Route.js"
 
     
 (async (id) => {

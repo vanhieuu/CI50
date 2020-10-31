@@ -10,14 +10,17 @@ class FormRegister extends HTMLElement{
                 this.$email = this.shadowRoot.getElementById('email');
                 this.$password = this.shadowRoot.getElementById('password');
                 this.$passwordConfirmation = this.shadowRoot.getElementById('password-confirmation');
-                        console.log(this);
+
                 this.$formRegister = this.shadowRoot.querySelector('.form-register');
                 // this.$formRegister.onsubmit = function (event) {
                     this.$formRegister.onsubmit =  (event) => {
-                    console.log(this);
                             event.preventDefault();
                         this.register()
                 }
+                // this.$loginLink = this.shadowRoot.getElementById('login-link');
+                // this.$loginLink.onclick = () =>{
+                //     router.navigate('/sign-in');
+                // }
             }
         async register(){
             let email = this.$email.value;

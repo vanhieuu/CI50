@@ -15,6 +15,10 @@ let $template = document.getElementById('form-login-template');
                 event.preventDefault();
                 this.handle();
             }
+            // this.$registerLink = this.shadowRoot.getElementById('register-link');
+            // this.$registerLink.onclick = () =>{
+            //     router.navigate('/sign-up');
+            // }
     }
     async handle(){
         let email = this.$email.value;
@@ -34,11 +38,12 @@ let $template = document.getElementById('form-login-template');
                     // let tmpData = tmp.data();
                     // delete tmpData.password;
                     // console.log(tmp.id , tmpData);
-                    console.log(getDataDoc(result.docs[0],['password']));
+                    // console.log(getDataDoc(result.docs[0],['password']));
                     saveCurrentUserData(getDataDoc(result.docs[0],['password']))
                     getCurrentUser();
+                    router.navigate('/todolist');
                 }
-                                        }   
+                }   
     }
     validate(){
             let isPassed = validateInputWrapper(this.$email,(value) => value != '','Nhập vào email')
