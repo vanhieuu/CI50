@@ -42,11 +42,21 @@ class FormRegister extends HTMLElement{
                                 .where('email','==',email)
                                 .get();
                     if(result.empty){
-                        firebase.firestore().collection('User').add({
+                        //thêm 1 doc vào collection User
+                       let newUser = await firebase.firestore().collection('User').add({
                             name: name,
                             email: email,
                             password: md5(password)
                         });
+                        console.log(newUser);
+                        //Tạo 1 document task list tương ứng vừa tạo 
+                        await firebase.firestore()
+                                        .collection('Task-lists')
+                                        .add({
+                                            task:[],
+                                            dateModified: new Date().toISOString(),
+                                            owner : newUser.id,
+                                        });
                         alert('bạn đã đăng ký thành công')
                     }else{
                         alert('tài khoản này đã được đăng ký'); 

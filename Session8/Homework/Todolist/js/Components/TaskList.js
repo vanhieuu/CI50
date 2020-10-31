@@ -59,7 +59,7 @@ class TaskList extends HTMLElement {
         this.render();
         
         firebase.firestore()
-                            .collection('Task-lists')
+                            .collection("Task-lists")
                             .doc(this.getAttribute('id'))
                             .update({
                                 tasks: this.tasks
@@ -84,7 +84,7 @@ class TaskList extends HTMLElement {
                 console.log(foundTask);
             }
             // Update dataBase
-            firebase.firestore().collection("Task-lists").doc(this.id).update(
+            firebase.firestore().collection('"Task-lists"').doc(this.id).update(
                 {tasks:this.tasks})
     }
     //==============================================\\
